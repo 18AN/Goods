@@ -1,10 +1,13 @@
 <template>
     <form @submit.prevent>
         <my-input v-model="item.title" type="text" placeholder="Наименование товара"/>
+        <p v-if="!titleIsValid">Поле является обязательным и должно содержать только буквы</p>
         <textarea v-model="item.description"></textarea>
         <my-input v-model="item.link" type="text" placeholder="Ссылка на изображение"/>
+        <p v-if="!linkIsValid">Поле является обязательным, должно содержать http://, не должно содержать пробелов и " </p>
         <my-input v-model="item.price" type="text" placeholder="Цена товара"/>
-        <button class="form__button" @click="createItem">Добавить товар</button>
+        <p v-if="!priceIsValid">Поле является обязательным и должно содержать только цифры </p>
+        <button class="form__button" :disabled="!formIsValid" @click="createItem">Добавить товар</button>
     </form>
 </template>
 
@@ -20,16 +23,33 @@ export default {
             }
         }
     },
+    computed: {
+        titleIsValid(){
+            return /^[а-яё\w]+$/i.test(this.item.title);
+        },
+        linkIsValid(){
+            return /^(ftp|http|https):\/\/[^ "]+$/.test(this.item.link);
+        },
+        priceIsValid(){
+            return /^\d+$/.test(this.item.price);
+        },
+        formIsValid(){
+            return this.titleIsValid && this.linkIsValid && this.priceIsValid;
+        },
+    },
     methods: {
         createItem(){
-            this.item.id = Date.now();
-            this.$emit('create', this.item)
-            this.item = {
-                title: '',
-                description: '',
-                link: '',
-                price: '',
+            if(this.formIsValid){
+                this.item.id = Date.now();
+                this.$emit('create', this.item)
+                this.item = {
+                    title: '',
+                    description: '',
+                    link: '',
+                    price: '',
+                }
             }
+            
         },
     }
 }
