@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import App from './App'
+import '@/scss/fonts.scss'
 import components from '@/components/UI'
 
 const app = createApp(App)

@@ -26,7 +26,6 @@ export default {
     max-width: 64.25em;
     display: flex;
     flex-wrap: wrap;
-    background-color: bisque;
     gap: 1em;
 }
 
