@@ -14,7 +14,7 @@ npm run serve
 ```
 npm run build
 ```
-### Site is available here https://62e869b12f372b4e87635f48--meek-toffee-527f9f.netlify.app/
+### Site is available here: https://main--meek-toffee-527f9f.netlify.app/
 ```
 
 ### Customize configuration
