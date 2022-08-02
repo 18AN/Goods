@@ -2,11 +2,11 @@
     <div class="container">
         <div class="header">
             <div class="header__title">Добавление товара</div>
-            <my-select v-model="selectedSort" :options="sortOptions" class="select"/>
+            <my-select v-model="selectedSort" :options="sortOptions"/>
         </div>
         <div class="main">
             <Form  @create="createItem" class="form-component"/>
-            <List :items="sortedItems" @remove="removeItem" class="list-component"/>
+            <List :items="sortedItems" @remove="removeItem" />
         </div>
     </div>
     
@@ -107,36 +107,12 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.5em;
+    margin-bottom: 1em;
     &__title{
         font-size: 1.75em;
         font-weight: 600;
-        line-height: 2.18em;
+        line-height: 1.25em;
     }
-}
-.select{
-    font-family: 'SourceSansPro', 'Arial', sans-serif;
-    font-size: 0.75em;
-    width: 12em;
-    height: 3em;
-    color: #B4B4B4;
-    outline: none;
-    border: none;
-    border-radius: 0.33em;
-    background-color: #FFFEFB;
-    box-shadow: 0em 0.16em 0.41em rgba(0, 0, 0, 0.1);
-}
-input{
-    min-width: 23.66em;
-    outline: none;
-    font-family: 'SourceSansPro', 'Arial', sans-serif;;
-    font-size: 0.75em;
-    line-height: 1.25em;
-    min-height: 3em;
-    padding-left: 1.33em;
-    border: none;
-    border-radius: 0.33em;
-    box-shadow: 0em 0.16em 0.41em rgb(0 0 0 / 10%);
 }
 
 button{

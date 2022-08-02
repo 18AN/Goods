@@ -6,7 +6,7 @@
         <div class="wrapper">
             <div class="title">{{item.title}}</div>
             <div class="description">{{item.description}}</div>
-            <div class="price">{{item.price}}</div>
+            <div class="price">{{new Intl.NumberFormat('ru-RU').format(item.price)}} руб</div>
         </div>
         <button @click="$emit('remove', item)" class="item__button"><img src="/img/delete.svg" alt=""></button>
     </div>
