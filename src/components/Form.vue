@@ -92,9 +92,10 @@ textarea{
     text-align: center;
     font-family: 'Inter', sans-serif;
     font-size: 0.75em;
+    font-weight: 600;
     min-height: 3em;
     line-height: 1.25em;
-    margin-top: 0.33em;
+    margin-top: 0.6em;
     border: none;
     border-radius: 0.83em;
     background-color: #7BAE73;
@@ -117,7 +118,7 @@ textarea{
 
 .hint{
     position: absolute;
-    font-size: 0.6em;
+    font-size: 0.5em;
     color: #FF8484;
     margin-top: 0.38em;
 }
