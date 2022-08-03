@@ -43,7 +43,8 @@ export default {
     },
     mounted() {
         if (!localStorage.getItem('items')) { 
-            localStorage.setItem('items',JSON.stringify(this.staticItems))
+            localStorage.setItem('items',JSON.stringify(this.staticItems));
+            this.items = JSON.parse(localStorage.getItem('items'));
         }else{
             this.items = JSON.parse(localStorage.getItem('items'));
         }
@@ -54,7 +55,7 @@ export default {
             this.saveItems();
         },
         removeItem(item){
-            this.items = this.items.filter(i => i.id !== item.id)
+            this.items = this.items.filter(i => i.id !== item.id);
             this.saveItems();
         },
         saveItems() {
