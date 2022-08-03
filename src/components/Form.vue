@@ -88,6 +88,7 @@ textarea{
     border: none;
     border-radius: 0.33em;
     box-shadow: 0em 0.16em 0.41em rgb(0 0 0 / 10%);
+    color: #3F3F3F;
 }
 textarea::-webkit-input-placeholder {
     color: #B4B4B4;
