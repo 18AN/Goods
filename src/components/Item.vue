@@ -56,9 +56,15 @@ export default {
 }
 
 .item:hover > .item__button{
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .image__container{
+    & > img{
+        width: 100%;
+        height: 100%;
+    }
     height: 12.5em;
     overflow: hidden;
 }
@@ -70,6 +76,12 @@ export default {
     overflow: auto;
     line-height: 1.25em;
     margin-bottom: 2em;
+}
+
+@media(max-width: 320px){
+    .item__button{
+        right: 0em;
+    }
 }
 
 </style>

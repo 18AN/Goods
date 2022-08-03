@@ -34,7 +34,7 @@ export default {
     },
     computed: {
         titleIsValid(){
-            return /^[а-яёa-z]+$/i.test(this.item.title);
+            return /^[а-яёa-z\s]+$/i.test(this.item.title);
         },
         linkIsValid(){
             return /[-a-zA-Z0-9@:%_\+.~#?&\/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&\/=]*)?/gi.test(this.item.link);
