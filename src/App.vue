@@ -92,7 +92,8 @@ export default {
     box-sizing: border-box;
 }
 html{
-    font-family: 'SourceSansPro', 'Arial', sans-serif;;
+    font-family: 'SourceSansPro', 'Arial', sans-serif;
+    color: #3F3F3F;
 }
 
 body{
@@ -125,6 +126,7 @@ body{
         font-size: 1.75em;
         font-weight: 600;
         line-height: 1.25em;
+        color: #3F3F3F;
     }
 }
 
@@ -143,11 +145,17 @@ button{
         top: -25.5em;
         z-index: 1;
         transition: 500ms;
+        & > .form__button{
+            transform: translateY(1.6em);
+        }
     }
     .form-component:hover{
         top: 0em;
         background-color:  #FFFEFB;
-        transition: 500ms
+        transition: 500ms;
+        & > .form__button{
+            transform: translateY(0em);
+        }
     }
     .list{
         justify-content: center;
