@@ -21,7 +21,8 @@ export default {
     },
     data() {
         return {
-            items: [
+            items: [],
+            staticItems: [
                 {id: 1, title: 'A', description: 'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк', link: '/img/item.svg', price: '10000'},
                 {id: 2, title: 'B', description: 'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк', link: '/img/item.svg', price: '20000'},
                 {id: 3, title: 'C', description: 'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк', link: '/img/item.svg', price: '30000'},
@@ -40,13 +41,26 @@ export default {
             ]
         }
     },
+    mounted() {
+        if (!localStorage.getItem('items')) { 
+            localStorage.setItem('items',JSON.stringify(this.staticItems))
+        }else{
+            this.items = JSON.parse(localStorage.getItem('items'));
+        }
+    },
     methods: {
         createItem(item){
             this.items.push(item);
+            this.saveItems();
         },
         removeItem(item){
             this.items = this.items.filter(i => i.id !== item.id)
-        }
+            this.saveItems();
+        },
+        saveItems() {
+            const parsed = JSON.stringify(this.items);
+            localStorage.setItem('items', parsed);
+        },
     },
     computed: {
         sortedItems(){
@@ -87,7 +101,7 @@ body{
 
 .container{
     max-width: 86em;
-    margin: 3em auto 0;
+    margin: 2em auto 0;
     background-color: rgba(255, 254, 251, 0.8);
 }
 .main{
@@ -118,13 +132,16 @@ button{
 }
 
 @media(max-width: 1024px){
+    .container{
+        margin-top: 3em;
+    }
     .form-component{
         background-color: transparent;
         box-shadow: none;
         position: fixed;
-        top: -29em;
+        top: -25.5em;
         z-index: 1;
-        transition: 500ms
+        transition: 500ms;
     }
     .form-component:hover{
         top: 0em;
