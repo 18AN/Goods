@@ -2,11 +2,11 @@
     <form @submit.prevent>
         <div class="input-wrapper">
             <div class="input__title req">Наименование товара</div>
-            <my-input v-model="item.title" type="text" placeholder="Введите наименование" :class="{error: !titleIsValid}"/>
+            <my-input v-model="item.title" type="text" placeholder="Введите наименование товара" :class="{error: !titleIsValid}"/>
             <div v-if="!titleIsValid" class="hint">Поле является обязательным и должно содержать только буквы</div> 
         </div>
         <div class="input__title">Описание товара</div>
-        <textarea v-model="item.description"></textarea>
+        <textarea placeholder="Введите описание товара" v-model="item.description"></textarea>
         <div class="input-wrapper">
             <div class="input__title req">Ссылка на изображение товара</div>
             <my-input v-model="item.link" type="text" placeholder="Введите ссылку" :class="{error: !linkIsValid}"/>
@@ -74,6 +74,8 @@ form{
 }
 
 textarea{
+    font-family: 'SourceSansPro', 'Arial', sans-serif;;
+    font-size: 0.75em;
     resize: none;
     outline: none;
     line-height: 1.25em;
@@ -86,6 +88,12 @@ textarea{
     border: none;
     border-radius: 0.33em;
     box-shadow: 0em 0.16em 0.41em rgb(0 0 0 / 10%);
+}
+textarea::-webkit-input-placeholder {
+    color: #B4B4B4;
+}
+textarea::-moz-placeholder {
+    color: #B4B4B4;
 }
 
 .form__button{
