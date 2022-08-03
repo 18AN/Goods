@@ -6,7 +6,7 @@
         </div>
         <div class="main">
             <Form  @create="createItem" class="form-component"/>
-            <List :items="sortedItems" @remove="removeItem" />
+            <List :items="sortedItems" @remove="removeItem" class="list-componenet" />
         </div>
     </div>
     
@@ -79,12 +79,10 @@ export default {
 html{
     font-family: 'SourceSansPro', 'Arial', sans-serif;;
 }
-img{
-    max-width: 100%;
-}
 
 body{
     background-color: rgba(255, 254, 251, 0.8);
+    padding-bottom: 2em;
 }
 
 .container{
