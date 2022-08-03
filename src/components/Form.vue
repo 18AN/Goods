@@ -1,20 +1,21 @@
 <template>
     <form @submit.prevent>
         <div class="input-wrapper">
-            <div class="input__title">Наименование товара</div>
+            <div class="input__title req">Наименование товара</div>
             <my-input v-model="item.title" type="text" placeholder="Введите наименование" :class="{error: !titleIsValid}"/>
-            <p v-if="!titleIsValid" class="hint">Поле является обязательным и должно содержать только буквы</p> 
+            <div v-if="!titleIsValid" class="hint">Поле является обязательным и должно содержать только буквы</div> 
         </div>
+        <div class="input__title">Описание товара</div>
         <textarea v-model="item.description"></textarea>
         <div class="input-wrapper">
-            <div class="input__title">Ссылка на изображение товара</div>
+            <div class="input__title req">Ссылка на изображение товара</div>
             <my-input v-model="item.link" type="text" placeholder="Введите ссылку" :class="{error: !linkIsValid}"/>
-            <p v-if="!linkIsValid" class="hint">Поле является обязательным(более 1 символа.домен)без!$^*;'"` </p>
+            <div v-if="!linkIsValid" class="hint">Поле является обязательным(более 1 символа.домен)без!$^*;'"` </div>
         </div>
         <div class="input-wrapper">
-            <div class="input__title">Цена товара</div>
+            <div class="input__title req">Цена товара</div>
             <my-input v-model="item.price" type="text" placeholder="Введите цену" :class="{error: !priceIsValid}"/>
-            <p v-if="!priceIsValid" class="hint">Поле является обязательным и должно содержать только цифры </p>
+            <div v-if="!priceIsValid" class="hint">Поле является обязательным и должно содержать только цифры </div>
         </div>
         <button class="form__button" :disabled="!formIsValid" @click="createItem">Добавить товар</button>
     </form>
@@ -115,14 +116,15 @@ textarea{
 }
 
 .hint{
-    font-size: 0.65em;
-    letter-spacing: -0.01em;
+    position: absolute;
+    font-size: 0.6em;
     color: #FF8484;
     margin-top: 0.38em;
 }
 
 .input-wrapper{
-    margin-bottom: 1em;
+    margin-bottom: 1.2em;
+    position: relative;
 }
 .input__title{
     display: flex;
@@ -131,7 +133,7 @@ textarea{
     line-height: 1.3em;
 }
 
-.input__title::after{
+.input__title.req::after{
     content: '';
     flex: 0 0 0.4em;
     height: 0.4em;
