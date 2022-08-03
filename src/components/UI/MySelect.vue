@@ -33,9 +33,9 @@ export default {
     font-family: 'SourceSansPro', 'Arial', sans-serif;
     font-size: 0.75em;
     line-height: 1.25em;
-    width: 10em;
+    width: 14em;
     height: 3em;
-    padding-left: 1.25em;
+    padding-left: 1.6em;
     color: #B4B4B4;
     outline: none;
     border: none;
@@ -45,6 +45,6 @@ export default {
     background-image: url("/public/img/select.svg");
     background-repeat: no-repeat;
     background-position-y: 50%;
-    background-position-x: 85%;
+    background-position-x: 88%;
 }
 </style>
